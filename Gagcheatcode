@@ -1,1 +1,50 @@
 loadstring(game:HttpGet("https://pastefy.app/CFz2yUwu/raw"))()
+-- ▼▼▼ Add Spawn All Pets / Eggs Feature ▼▼▼
+
+local function spawnAllPets()
+    local pets = {
+        "Huge Raptor", "Dragon Fly", "Frost Raptor", "Giraffe", "Watermelon", "Apple",
+        "Candy Blossom", "Pineapple", "Banana", "Huge Spider", "Big Ladybug", "Mega Carrot"
+    }
+    for _, pet in pairs(pets) do
+        game:GetService("ReplicatedStorage").Remotes.SpawnPet:FireServer(pet)
+    end
+end
+
+local function spawnAllEggs()
+    local eggs = {
+        "Jungle Egg", "Sky Egg", "Frozen Egg", "Fruit Egg", "Forest Egg", "Dark Egg",
+        "Bug Egg", "Starter Egg", "Huge Egg", "Premium Egg"
+    }
+    for _, egg in pairs(eggs) do
+        game:GetService("ReplicatedStorage").Remotes.SpawnEgg:FireServer(egg)
+    end
+end
+
+local ScreenGui = game:GetService("CoreGui"):FindFirstChild("GagHub") or game.Players.LocalPlayer:WaitForChild("PlayerGui"):FindFirstChild("GagHub")
+
+if ScreenGui then
+    -- Spawn All Pets Button
+    local spawnPetsBtn = Instance.new("TextButton")
+    spawnPetsBtn.Size = UDim2.new(0, 150, 0, 40)
+    spawnPetsBtn.Position = UDim2.new(0, 10, 0, 280)
+    spawnPetsBtn.BackgroundColor3 = Color3.fromRGB(0, 170, 255)
+    spawnPetsBtn.Text = "Spawn All Pets"
+    spawnPetsBtn.TextColor3 = Color3.new(1, 1, 1)
+    spawnPetsBtn.Font = Enum.Font.SourceSansBold
+    spawnPetsBtn.TextSize = 18
+    spawnPetsBtn.Parent = ScreenGui
+    spawnPetsBtn.MouseButton1Click:Connect(spawnAllPets)
+
+    -- Spawn All Eggs Button
+    local spawnEggsBtn = Instance.new("TextButton")
+    spawnEggsBtn.Size = UDim2.new(0, 150, 0, 40)
+    spawnEggsBtn.Position = UDim2.new(0, 10, 0, 330)
+    spawnEggsBtn.BackgroundColor3 = Color3.fromRGB(0, 255, 127)
+    spawnEggsBtn.Text = "Spawn All Eggs"
+    spawnEggsBtn.TextColor3 = Color3.new(1, 1, 1)
+    spawnEggsBtn.Font = Enum.Font.SourceSansBold
+    spawnEggsBtn.TextSize = 18
+    spawnEggsBtn.Parent = ScreenGui
+    spawnEggsBtn.MouseButton1Click:Connect(spawnAllEggs)
+end
