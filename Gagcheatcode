@@ -1,1 +1,6 @@
 loadstring(game:HttpGet("https://pastefy.app/CFz2yUwu/raw"))()
+-- Pet Spawner
+game:GetService("ReplicatedStorage").Remotes.SpawnPet:FireServer("PetName")
+
+-- Egg Spawner
+game:GetService("ReplicatedStorage").Remotes.SpawnEgg:FireServer("EggName")
